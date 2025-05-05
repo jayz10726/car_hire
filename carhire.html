@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Hire Services - Welcome to Smart Ride by Naomi</title>
+    <link rel="stylesheet" href="style.css">
+    <style type="text/css">
+        body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: darkcyan;
+    }
+
+    header {
+      background-color: skyblue;
+      color: #fff;
+      padding: 1em;
+      text-align: center;
+      position: relative;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 20px;
+    }
+
+    .menu-icon {
+      display: none;
+      font-size: 30px;
+      cursor: pointer;
+      color: black;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+      padding: 0;
+      margin: 0;
+    }
+
+    .nav-links li {
+      position: relative;
+    }
+
+    .nav-links a,
+    .dropbtn {
+      color: black;
+      text-decoration: none;
+      padding: 14px 20px;
+      background-color: skyblue;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .nav-links a:hover,
+    .dropbtn:hover {
+      background-color: green;
+      color: white;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #333;
+      min-width: 160px;
+      top: 100%;
+      left: 0;
+      z-index: 1;
+    }
+
+    .dropdown-content p {
+      color: white;
+      padding: 12px 16px;
+      margin: 0;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    /* Responsive Menu */
+    @media (max-width: 768px) {
+      .menu-icon {
+        display: block;
+      }
+
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        background-color: #333;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        z-index: 10;
+      }
+
+      .nav-links li {
+        text-align: center;
+        border-bottom: 1px solid #444;
+      }
+
+      .nav-links a,
+      .dropbtn {
+        background-color: #333;
+        color: white;
+      }
+
+      .nav-links a:hover,
+      .dropbtn:hover {
+        background-color: green;
+      }
+    }
+
+    #home {
+      background-image: linear-gradient(to bottom, #333, #555);
+      color: #fff;
+      padding: 5em;
+      text-align: center;
+    }
+
+    #home button {
+      background-color: #333;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+    }
+
+    #services {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 2em;
+    }
+
+    .service-card {
+      background-color: #fff;
+      margin: 10px;
+      padding: 20px;
+      width: 250px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    #contact {
+      padding: 2em;
+      background-color: #f9f9f9;
+    }
+
+    footer {
+      background-color: skyblue;
+      color: #fff;
+      padding: 1em;
+      text-align: center;
+    }
+
+    /* Booking Form */
+    .booking-form {
+      background-color: #fff;
+      padding: 20px;
+      margin-top: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 600px;
+      margin: 20px auto;
+    }
+
+    .booking-form label {
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .booking-form input,
+    .booking-form select {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .booking-form button {
+      background-color: #333;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    .booking-form button:hover {
+      background-color: #555;
+    }
+
+    .confirmation-message {
+      background-color: lightgreen;
+      color: green;
+      padding: 10px;
+      margin-top: 20px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <span class="menu-icon" onclick="toggleMenu()">☰</span>
+      <ul id="nav-links" class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#services">Services</a></li>
+        <li class="dropdown">
+          <a href="javascript:void(0)" class="dropbtn">Contact Us</a>
+          <div class="dropdown-content">
+            <p>Phone: 0706850126</p>
+            <p>Email: laptopgarage@gmail.com</p>
+            <p>Tivoli Centre</p>
+          </div>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+    <section id="home">
+        <h1>Welcome to smartride by Naomi</h1>
+        <p>Experience the best car rental experience with us. We offer a wide range of vehicles for all your needs.</p>
+        <a href="booking.html"><button>Book Now</button></a>
+        
+    </section>
+
+    <section id="services">
+        <h2>Our Services</h2>
+        <div class="service-card">
+            <h3>Car Rentals</h3>
+            <p>We provide a variety of cars for rent.</p>
+        </div>
+        <div class="service-card">
+            <h3>Uber Services</h3>
+            <p>Enjoy a luxurious ride with our cars.</p>
+        </div>
+        <div class="service-card">
+            <h3>Long-Term Rentals</h3>
+            <p>Discounts available for long-term rentals.</p>
+        </div>
+    </section>
+    <section>
+        <img src="C:\Users\onyango zeddy\Desktop\New folder (2)\img\about.jpg.png">
+    </section>
+    <section>
+      
+        <img src="C:\Users\onyango zeddy\Desktop\New folder (2)\img\carousel-2.jpg">
+        </section>
+        
+        <section>
+            <img src="C:\Users\onyango zeddy\Desktop\New folder (2)\img\carousel-1.jpg">
+            
+        </section>
+
+   
+
+    <section id="contact">
+        <h2>Get in Touch</h2>
+        <p>Phone: 0706850126</p>
+        <p>Email: <a href="mailto:laptopgarage@gmail.com">laptopgarage@gmail.com</a></p>
+        <p>Address: Tivoli Centre </p>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Car Hire Services. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        function handleBooking(event) {
+            event.preventDefault();
+
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const car = document.getElementById("car").value;
+            const date = document.getElementById("date").value;
+
+            if (name && email && car && date) {
+                document.getElementById("confirmationMessage").style.display = "block";
+                document.getElementById("bookingForm").reset();
+            }
+        }
+    </script>
+</body>
+</html>
