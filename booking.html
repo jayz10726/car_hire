@@ -1,0 +1,177 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Your Ride - Smart Ride</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: royalblue;
+    background-size: cover;
+}
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            background-color: #333;
+            display: flex;
+        }
+
+        nav ul li {
+            position: relative;
+        }
+
+        nav ul li a {
+            display: block;
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+        }
+
+        nav ul li a:hover {
+            background-color: #111;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 200px;
+            z-index: 1;
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        section#booking {
+            padding: 20px;
+        }
+
+        form.booking-form {
+            max-width: 400px;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        form.booking-form label,
+        form.booking-form input,
+        form.booking-form select,
+        form.booking-form button {
+            margin-bottom: 15px;
+        }
+
+        .confirmation-message {
+            text-align: center;
+            padding: 20px;
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+            border-radius: 5px;
+            margin-top: 20px;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .confirmation-message.show {
+            opacity: 1;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                
+                <li class="dropdown">
+                    <a href="javascript:void(0)" class="dropbtn">Contact Us</a>
+                    <div class="dropdown-content" role="menu">
+                        <p><strong>Phone:</strong> 0706850126</p>
+                        <p><strong>Email:</strong> laptopgarage@gmail.com</p>
+                        <p><strong>Location:</strong> Tivoli Centre</p>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="booking">
+        <h2>Book Your Ride</h2>
+        <form class="booking-form" id="bookingForm" onsubmit="handleBooking(event)">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" required placeholder="e.g. smart ride">
+
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" required placeholder="e.g. smartride@gmail.com">
+
+            <label for="car">Select Car</label>
+            <select id="car" name="car" required>
+                <option value="">-- Select a Car --</option>
+                <option value=" Fielder"> Fielder</option>
+                <option value="V8">V8</option>
+                <option value="Allion">axio</option>
+                <option value="vitz">vitz</option>
+                <option value="NOAH">NOAH</option>
+            </select>
+
+            <label for="date">Booking Date</label>
+            <input type="date" id="date" name="date" required>
+
+            <button type="submit">Book Now</button>
+        </form>
+
+        <div id="confirmationMessage" class="confirmation-message">
+            <h3>Booking Successful!</h3>
+            <p>Thank you for booking with us. We will contact you shortly to confirm your booking.</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Car Hire Services. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // Prevent past dates from being selected
+        window.onload = () => {
+            const today = new Date().toISOString().split("T")[0];
+            document.getElementById("date").setAttribute("min", today);
+        };
+
+        function handleBooking(event) {
+            event.preventDefault();
+
+            const name = document.getElementById("name").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const car = document.getElementById("car").value;
+            const date = document.getElementById("date").value;
+
+            if (name && email && car && date) {
+                const confirmation = document.getElementById("confirmationMessage");
+                confirmation.classList.add("show");
+
+                setTimeout(() => {
+                    confirmation.classList.remove("show");
+                }, 5000);
+
+                document.getElementById("bookingForm").reset();
+            }
+        }
+    </script>
+</body>
+</html>
