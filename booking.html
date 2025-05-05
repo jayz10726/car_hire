@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Your Ride - Smart Ride</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    /* Set Fielder car image as background */
+    background: url('https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?auto=format&fit=crop&w=1500&q=80') no-repeat center center fixed;
+    background-size: cover;
+    position: relative;
+}
+
+header, section, footer {
+    position: relative;
+    z-index: 1;
+}
+
+/* Make all text more visible */
+header, section, footer, label, input, select, button, h2, p {
+    color: #fff !important;
+    text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
+}
+
+/* Style form fields for better contrast */
+form.booking-form input,
+form.booking-form select {
+    background: rgba(0,0,0,0.6);
+    color: #fff;
+    border: 1px solid #fff;
+}
+
+form.booking-form input::placeholder {
+    color: #eee;
+    opacity: 1;
+}
+
+form.booking-form button {
+    background: #222;
+    color: #fff;
+    border: 1px solid #fff;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+form.booking-form button:hover {
+    background: #fff;
+    color: #222;
+    border: 1px solid #222;
+}
+
+/* Keep nav readable */
+nav ul li a {
+    color: #fff;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+}
+
+.dropdown-content {
+    color: #222 !important;
+    background: rgba(255,255,255,0.95);
+    border: 1px solid #ccc;
+}
+
+.dropdown-content p {
+    color: #222 !important;
+    text-shadow: none;
+}
+
+/* Footer remains visible */
+footer {
+    background-color: #333;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    z-index: 2;
+}
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            background-color: #333;
+            display: flex;
+        }
+
+        nav ul li {
+            position: relative;
+        }
+
+        nav ul li a:hover {
+            background-color: #111;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 200px;
+            z-index: 1;
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        section#booking {
+            padding: 20px;
+        }
+
+        form.booking-form {
+            max-width: 400px;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        form.booking-form label,
+        form.booking-form input,
+        form.booking-form select,
+        form.booking-form button {
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                
+                <li class="dropdown">
+                    <a href="javascript:void(0)" class="dropbtn">Contact Us</a>
+                    <div class="dropdown-content" role="menu">
+                        <p><strong>Phone:</strong> 0706850126</p>
+                        <p><strong>Email:</strong> laptopgarage@gmail.com</p>
+                        <p><strong>Location:</strong> Tivoli Centre</p>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="booking">
+        <h2>Book Your Ride</h2>
+        <form class="booking-form" id="bookingForm" action="booking.php" method="POST">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" required placeholder="e.g. smart ride">
+
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" required placeholder="e.g. smartride@gmail.com">
+
+            <label for="car">Select Car</label>
+            <select id="car" name="car" required>
+                <option value="">-- Select a Car --</option>
+                <option value="Fielder">Fielder</option>
+                <option value="V8">V8</option>
+                <option value="Allion">Allion</option>
+                <option value="Vitz">Vitz</option>
+                <option value="NOAH">NOAH</option>
+            </select>
+
+            <label for="date">Booking Date</label>
+            <input type="date" id="date" name="date" required min="<?php echo date('Y-m-d'); ?>">
+
+            <button type="submit">Book Now</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Car Hire Services. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
